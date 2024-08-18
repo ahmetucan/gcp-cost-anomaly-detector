@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.cronjob.name }}
+  labels:
+    app: {{ .Values.cronjob.name }}
+spec:
+  schedule: "{{ .Values.cronjob.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: {{ .Values.cronjob.name }}
+            image: {{ .Values.cronjob.image.name }}:{{ .Values.cronjob.image.tag }}
+            volumeMounts:
+            - name: config-volume
+              mountPath: {{ .Values.cronjob.config.path }}
+              subPath: {{ .Values.cronjob.config.key }}
+          restartPolicy: Never
+          imagePullSecrets:
+            - name: image-pull-secret # change this according to your environment
+          volumes:
+          - name: config-volume
+            configMap:
+              name: {{ .Release.Name }}-config
+      backoffLimit: 1

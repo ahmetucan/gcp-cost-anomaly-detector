@@ -1,0 +1,10 @@
+cronjob:
+  schedule: "0 7 * * *"
+  image:
+    name: 
+    tag: 
+  name: gcp-cost-anomaly-detector
+  config:
+    key: config.json
+    path: /app/config.json
+  env: []

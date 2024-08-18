@@ -1,0 +1,20 @@
+{
+    "projects": {
+        "project-1": {
+            "name": "",
+            "id": "",
+            "billing_account_id": "",
+            "billing_account_name": "",
+            "billing_table_name": "",
+            "billing_dataset_name": ""
+        },
+        "project-2": {
+            "name": "",
+            "id": "",
+            "billing_account_id": "",
+            "billing_account_name": "",
+            "billing_table_name": "",
+            "billing_dataset_name": ""
+        }
+    }
+}
